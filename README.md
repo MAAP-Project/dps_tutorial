@@ -19,9 +19,6 @@ This demo will teach you how to:
 ## Sample Algorithm
 This demo script takes in an image as an input and converts it to grayscale.
 
-### Installation
-
-
 
 ### Usage
 ```
@@ -36,3 +33,24 @@ options:
                         Filepath to store converted image
 
 ```
+
+### How to test algorithm before registration 
+
+Create a temp working dir somewhere outside the code repository. 
+```commandline
+cd /tmp
+```
+Create the input directory and place the image in that directory 
+```commandline
+mkdir -p input
+# Copy input file here
+```
+Deactivate custom environment
+```commandline
+conda deactivate
+```
+Run the [run_grayscale.sh](run_grayscale.sh) script from this temp directory
+```commandline
+bash ${path_to_repo_parent_dir}/dps_tutorial/run_grayscale.sh
+```
+If this script runs successfully then you are one step closer to running the algorithm on DPS.
