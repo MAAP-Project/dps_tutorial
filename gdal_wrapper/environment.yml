@@ -1,0 +1,7 @@
+name: dps_tutorial
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - gdal
+
