@@ -52,6 +52,10 @@ Deactivate custom environment
 ```commandline
 conda deactivate
 ```
+Run the [build-env.sh](build-env.sh) script from this temp directory to build custom env
+```commandline
+bash ${path_to_repo_parent_dir}/dps_tutorial/gdal_wrapper/build-env.sh
+```
 Run the [run_gdal.sh](run_gdal.sh) script from this temp directory
 ```commandline
 bash ${path_to_repo_parent_dir}/dps_tutorial/gdal_wrapper/run_gdal.sh
