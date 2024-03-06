@@ -9,7 +9,7 @@
 #this is done because we are in a non interactive
 #terminal when running the job on the DPS.
 
-source activate dps_tutorial
+# source activate dps_tutorial
 
 # Get current location of build script
 basedir=$( cd "$(dirname "$0")" ; pwd -P )
@@ -37,4 +37,4 @@ REDUCTION_SIZE=$2
 
 # Call the script using the absolute paths
 # Any output written to the stdout and stderr streams will be automatically captured and placed in the output dir
-python ${basedir}/gdal_wrapper.py --input_file ${INPUT_FILENAME} --output_file output/${OUTPUT_FILENAME} --outsize ${REDUCTION_SIZE}
+conda run --live-stream --name dps_tutorial python ${basedir}/gdal_wrapper.py --input_file ${INPUT_FILENAME} --output_file output/${OUTPUT_FILENAME} --outsize ${REDUCTION_SIZE}
