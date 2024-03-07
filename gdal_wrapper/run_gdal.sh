@@ -4,13 +4,6 @@
 # that are downloaded by the DPS and outputs that are
 # required to be persisted
 
-# Activate our custom environment
-# Note the use of source here and not conda,
-#this is done because we are in a non interactive
-#terminal when running the job on the DPS.
-
-# source activate dps_tutorial
-
 # Get current location of build script
 basedir=$( cd "$(dirname "$0")" ; pwd -P )
 
@@ -36,5 +29,7 @@ OUTPUT_FILENAME=$1
 REDUCTION_SIZE=$2
 
 # Call the script using the absolute paths
+# Use the updated environment when calling 'conda run'
+# This lets us run the same way in a Terminal as in DPS
 # Any output written to the stdout and stderr streams will be automatically captured and placed in the output dir
-conda run --live-stream --name dps_tutorial python ${basedir}/gdal_wrapper.py --input_file ${INPUT_FILENAME} --output_file output/${OUTPUT_FILENAME} --outsize ${REDUCTION_SIZE}
+conda run --live-stream --name vanilla python ${basedir}/gdal_wrapper.py --input_file ${INPUT_FILENAME} --output_file output/${OUTPUT_FILENAME} --outsize ${REDUCTION_SIZE}
