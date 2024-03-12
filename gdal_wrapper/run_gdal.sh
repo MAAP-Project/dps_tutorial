@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash --login
 # This script is the one that is called by the DPS.
 # Use this script to prepare input paths for any files
 # that are downloaded by the DPS and outputs that are
@@ -32,4 +32,6 @@ REDUCTION_SIZE=$2
 # Use the updated environment when calling 'conda run'
 # This lets us run the same way in a Terminal as in DPS
 # Any output written to the stdout and stderr streams will be automatically captured and placed in the output dir
+echo conda run --live-stream --name vanilla python ${basedir}/gdal_wrapper.py --input_file ${INPUT_FILENAME} --output_file output/${OUTPUT_FILENAME} --outsize ${REDUCTION_SIZE}
+
 conda run --live-stream --name vanilla python ${basedir}/gdal_wrapper.py --input_file ${INPUT_FILENAME} --output_file output/${OUTPUT_FILENAME} --outsize ${REDUCTION_SIZE}
