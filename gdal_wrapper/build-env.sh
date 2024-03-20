@@ -1,5 +1,5 @@
-#!/bin/bash --login
-
+#!/usr/bin/env -S bash --login
+set -euo pipefail
 # This script is used to install any custom packages required by the algorithm.
 
 # Get current location of build script
