@@ -37,6 +37,11 @@ options:
 
 ```
 
+For example:
+```
+gdal_wrapper.py --input_file input_file.tif --output_file output_file.tif --outsize 25
+```
+
 ### How to test algorithm before registration 
 
 Create a temp working dir somewhere outside the code repository. 
@@ -58,7 +63,12 @@ bash ${path_to_repo_parent_dir}/dps_tutorial/gdal_wrapper/build-env.sh
 ```
 Run the [run_gdal.sh](run_gdal.sh) script from this temp directory
 ```commandline
-bash ${path_to_repo_parent_dir}/dps_tutorial/gdal_wrapper/run_gdal.sh
+bash ${path_to_repo_parent_dir}/dps_tutorial/gdal_wrapper/run_gdal.sh OUTPUT_FILENAME.tif OUTSIZE_INT
+```
+
+For example:
+```
+bash ${path_to_repo_parent_dir}/dps_tutorial/gdal_wrapper/run_gdal.sh demo_output.tif 30
 ```
 If this script runs successfully then you are one step closer to running the algorithm on DPS.
 

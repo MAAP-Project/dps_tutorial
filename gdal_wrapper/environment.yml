@@ -1,7 +1,6 @@
-name: dps_tutorial
+name: vanilla
 channels:
   - conda-forge
   - defaults
 dependencies:
   - gdal
-
