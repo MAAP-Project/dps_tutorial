@@ -16,23 +16,18 @@ basedir=$(dirname "$(readlink -f "$0")")
 
 mkdir -p output
 
-
-# DPS downloads all files provided as inputs to
-# this directory called input.
-# In our example the image will be downloaded here.
-INPUT_DIR=input
-
-# Since we only have one input we can list it as below
-input_filename=$(ls -d input/*)
-
-# Parse named arguments instead of positional arguments
+# Parse named arguments as defined in the CWL file
 while [[ $# -gt 0 ]]; do
   case $1 in
-    --output_filename)
+    --input_file)
+      input_filename="$2"
+      shift 2
+      ;;
+    --output_file)
       output_filename="$2"
       shift 2
       ;;
-    --reduction_size)
+    --outsize)
       reduction_size="$2"
       shift 2
       ;;
