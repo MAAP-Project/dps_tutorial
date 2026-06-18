@@ -42,6 +42,6 @@ done
 # Use the updated environment when calling 'conda run'
 # This lets us run the same way in a Terminal as in DPS
 # Any output written to the stdout and stderr streams will be automatically captured and placed in the output dir
-# echo conda run --live-stream --name vanilla python ${basedir}/gdal_wrapper.py --input_file ${input_filename} --output_file output/${output_filename} --outsize ${reduction_size}
+# echo conda run --live-stream --name notebook python ${basedir}/gdal_wrapper.py --input_file ${input_filename} --output_file output/${output_filename} --outsize ${reduction_size}
 
-conda run --live-stream --name python python ${basedir}/gdal_wrapper.py --input_file ${input_filename} --output_file output/${output_filename} --outsize ${reduction_size}
+conda run --live-stream --name notebook python ${basedir}/gdal_wrapper.py --input_file ${input_filename} --output_file output/${output_filename} --outsize ${reduction_size}
