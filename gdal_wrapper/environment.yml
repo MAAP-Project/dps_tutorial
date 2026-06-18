@@ -1,4 +1,4 @@
-name: python
+name: notebook
 channels:
   - conda-forge
   - defaults

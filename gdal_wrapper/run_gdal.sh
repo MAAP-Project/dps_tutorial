@@ -25,9 +25,23 @@ INPUT_DIR=input
 # Since we only have one input we can list it as below
 input_filename=$(ls -d input/*)
 
-# Read the positional argument as defined in the algorithm registration here
-output_filename=$1
-reduction_size=$2
+# Parse named arguments instead of positional arguments
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    --output_filename)
+      output_filename="$2"
+      shift 2
+      ;;
+    --reduction_size)
+      reduction_size="$2"
+      shift 2
+      ;;
+    *)
+      echo "Unknown argument: $1"
+      exit 1
+      ;;
+  esac
+done
 
 # Call the script using the absolute paths
 # Use the updated environment when calling 'conda run'

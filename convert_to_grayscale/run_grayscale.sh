@@ -32,8 +32,20 @@ INPUT_DIR=input
 # Since we only have one input we can list it as below
 INPUT_IMAGE_PATH=$(ls input/*)
 
-# Read the positional argument as defined in the algorithm registration here
-OUTPUT_IMAGE_NAME=$1
+# Parse named arguments instead of positional arguments
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    --output_image_name)
+      OUTPUT_IMAGE_NAME="$2"
+      shift 2
+      ;;
+    *)
+      echo "Unknown argument: $1"
+      exit 1
+      ;;
+  esac
+done
+
 OUTPUT_IMAGE_PATH="output/${OUTPUT_IMAGE_NAME}"
 
 # Call the script using the absolute path
