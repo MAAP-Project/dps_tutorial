@@ -1,4 +1,4 @@
-#!/usr/bin/env -S bash --login
+#!/bin/bash
 set -euo pipefail
 # This script is the one that is called by the DPS.
 # Use this script to prepare input paths for any files
@@ -16,18 +16,27 @@ basedir=$(dirname "$(readlink -f "$0")")
 
 mkdir -p output
 
-
-# DPS downloads all files provided as inputs to
-# this directory called input.
-# In our example the image will be downloaded here.
-INPUT_DIR=input
-
-# Since we only have one input we can list it as below
-input_filename=$(ls -d input/*)
-
-# Read the positional argument as defined in the algorithm registration here
-output_filename=$1
-reduction_size=$2
+# Parse named arguments as defined in the CWL file
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    --input_file)
+      input_filename="$2"
+      shift 2
+      ;;
+    --output_file)
+      output_filename="$2"
+      shift 2
+      ;;
+    --outsize)
+      reduction_size="$2"
+      shift 2
+      ;;
+    *)
+      echo "Unknown argument: $1"
+      exit 1
+      ;;
+  esac
+done
 
 # Call the script using the absolute paths
 # Use the updated environment when calling 'conda run'
