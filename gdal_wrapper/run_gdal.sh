@@ -1,4 +1,4 @@
-#!/usr/bin/env -S bash --login
+#!/bin/bash
 set -euo pipefail
 # This script is the one that is called by the DPS.
 # Use this script to prepare input paths for any files
